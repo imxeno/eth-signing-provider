@@ -31,9 +31,11 @@ module.exports = async (req, res) => {
         });
     } catch (err) {
       res.json({ success: false, error: "Transaction sending error." });
+      console.log(err);
     }
   } catch (err) {
     res.json({ success: false, error: "Transaction signing error." });
+    console.log(err);
   }
 };
 
