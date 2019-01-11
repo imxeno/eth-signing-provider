@@ -1,1 +1,1 @@
-# simple-signing-provider
+# eth-signing-provider
