@@ -8,7 +8,8 @@ module.exports = async (req, res) => {
       success: true,
       address: account.address,
       balance: await web3.eth.getBalance(account.address),
-      whitelist: config.whitelist
+      whitelist: config.whitelist,
+      network: await web3.eth.net.getId()
     });
   } catch (err) {
     res.json({ success: false, error: "Unknown" });

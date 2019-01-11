@@ -8,20 +8,23 @@
 <body>
   <h1>eth-signing-provider</h1>
   <h2>GET /api/v1/info</h2>
-  <p>response:</p>
+  <p>example response:</p>
   <pre>{
-  "success":true,
-  "address":"0x5E802cec19C37D7cb19A1B11c4f90f7BC07C3684",
-  "balance":"199914912000000000",
-  "whitelist":["0xe6C8E039a81360bd40933D95a4D23ABD544306B2"]
+  "success": true,
+  "address": "0x5E802cec19C37D7cb19A1B11c4f90f7BC07C3684",
+  "balance": "199914912000000000",
+  "whitelist": [
+    "0xe6C8E039a81360bd40933D95a4D23ABD544306B2"
+  ],
+  "network": 3
 }</pre>
   <h2>POST /api/v1/sign</h2>
-  <p>request:</p>
+  <p>example request:</p>
 <pre>{
   "to": "0xe6C8E039a81360bd40933D95a4D23ABD544306B2",
   "data": "0xdeadc0de"
 }</pre>
-  <p>response:</p>
+  <p>example response:</p>
 <pre>{
   "success": true,
   "txid": "0xe9683b883ef3f88b866746ad84c6509efadb793d52c8252e3e666909adedfe18"
