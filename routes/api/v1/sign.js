@@ -1,4 +1,4 @@
-const { web3, account } = require("../../../utils/eth");
+const { web3, account, getNonce } = require("../../../utils/eth");
 const config = require("../../../config.json");
 
 module.exports = async (req, res) => {
@@ -19,6 +19,7 @@ module.exports = async (req, res) => {
     });
     return;
   }
+  tx.nonce = getNonce();
   try {
     if (typeof tx.gas === "undefined") tx.gas = await web3.eth.estimateGas(tx);
     const signed = await account.signTransaction(tx);
@@ -68,6 +69,8 @@ const isValidTransaction = tx => {
 
 const isWhitelistedAddress = address => {
   return (
-    config.whitelist.map(a => a.toLowerCase()).indexOf(address.toLowerCase()) !== -1
+    config.whitelist
+      .map(a => a.toLowerCase())
+      .indexOf(address.toLowerCase()) !== -1
   );
 };

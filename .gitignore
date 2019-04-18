@@ -61,3 +61,8 @@ typings/
 .next
 
 /config.json
+
+/ssl/*
+!/ssl/.keep
+
+.DS_Store
