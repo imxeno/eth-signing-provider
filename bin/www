@@ -8,6 +8,7 @@ var app = require("../app");
 var debug = require("debug")("eth-signing-provider:server");
 var https = require("https");
 var fs = require("fs");
+var path = require("path");
 
 /**
  * Get port from environment and store in Express.
@@ -22,10 +23,9 @@ app.set("port", port);
 
 var server = https.createServer(
   {
-    key: fs.readFileSync("../ssl/key.pem"),
-    cert: fs.readFileSync("../ssl/cert.pem"),
-    ca: fs.readFileSync("../ssl/ca.pem"),
-    minVersion: "TLSv1.2",
+    key: fs.readFileSync(path.resolve(__dirname, "../ssl/key.pem")),
+    cert: fs.readFileSync(path.resolve(__dirname, "../ssl/cert.pem")),
+    ca: [fs.readFileSync(path.resolve(__dirname, "../ssl/ca.pem"))],
     requestCert: true,
     rejectUnauthorized: true
   },
