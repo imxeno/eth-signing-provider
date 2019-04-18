@@ -29,6 +29,8 @@ var server = https.createServer(
     minVersion: "TLSv1.2",
     requestCert: true,
     rejectUnauthorized: true
+    // We trust default cipher list provided by node (it has been carefully selected to
+    // reflect current security best practices and risk mitigation)
   },
   app
 );
