@@ -1,28 +1,38 @@
 # eth-signing-provider
 
-## GET /api/v1/info
+## Configuration
+
+Copy `config.dist.json` to `config.json` and change the `privateKey` and `web3Provider` fields.
+Put `ca.pem`, `key.pem` and `cert.pem` in `/ssl` directory.
+
+## Methods
+
+### GET /api/v1/info
+
 example response:
+
 ```
 {
   "success": true,
   "address": "0x5E802cec19C37D7cb19A1B11c4f90f7BC07C3684",
   "balance": "199914912000000000",
-  "whitelist": [
-    "0xe6C8E039a81360bd40933D95a4D23ABD544306B2"
-  ],
   "network": 3
 }
 ```
 
-## POST /api/v1/sign
+### POST /api/v1/sign
+
 example request:
+
 ```
 {
   "to": "0xe6C8E039a81360bd40933D95a4D23ABD544306B2",
   "data": "0xdeadc0de"
 }
 ```
+
 example response:
+
 ```
 {
   "success": true,
