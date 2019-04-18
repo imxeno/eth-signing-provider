@@ -1,5 +1,4 @@
 const { web3, account } = require("../../../utils/eth");
-const config = require("../../../config.json");
 
 module.exports = async (req, res) => {
   console.log("Received a sign request!");
