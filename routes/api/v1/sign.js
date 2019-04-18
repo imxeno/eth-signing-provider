@@ -12,13 +12,6 @@ module.exports = async (req, res) => {
     });
     return;
   }
-  if (!isWhitelistedAddress(tx.to)) {
-    res.json({
-      success: false,
-      error: "Transaction recipient is not whitelisted."
-    });
-    return;
-  }
   try {
     if (typeof tx.gas === "undefined") tx.gas = await web3.eth.estimateGas(tx);
     const signed = await account.signTransaction(tx);
@@ -64,10 +57,4 @@ const isValidTransaction = tx => {
     }
   }
   return true;
-};
-
-const isWhitelistedAddress = address => {
-  return (
-    config.whitelist.map(a => a.toLowerCase()).indexOf(address.toLowerCase()) !== -1
-  );
 };

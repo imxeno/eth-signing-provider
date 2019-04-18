@@ -1,7 +1,4 @@
 {
-    "privateKey": "0xabcdef",
-    "web3Provider": "https://ropsten.infura.io/v3/xxx",
-    "whitelist": [
-        "0x000000"
-    ]
+  "privateKey": "0xabcdef",
+  "web3Provider": "https://ropsten.infura.io/v3/xxx"
 }
