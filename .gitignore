@@ -64,3 +64,5 @@ typings/
 
 /ssl/*
 !/ssl/.keep
+
+.DS_Store
